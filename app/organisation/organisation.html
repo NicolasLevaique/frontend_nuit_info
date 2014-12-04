@@ -1,34 +1,35 @@
 <!DOCTYPE html>
 <html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
-	<h2> Purpose a new mission:<h2>
-	<form name="form" novalidate class="simple-form">
-		Title:
-		<input type="text" ng-model="mission.title"  required /><br />
-		Description :
-		<input type="text" ng-model="mission.description" required/><br />
-		Date :
-		<input type="datetime" ng-model="mission.date" required/><br />
-		Duration :
-		<input type="number" ng-model="mission.duration" required min="1" max="8"/>hour<br />
-		Number of volunteers :
-		<input type="text" ng-model="mission.nbVolunteers" required/><br />
-		Tag : <br />
-		<input type="radio" name="meta" value="housing" ng-model="mission.meta" checked>housing
-		<br />
-		<input type="radio" name="meta" ng-model="mission.meta" value="distribution">Food distribution
-		<br />
-		<input type="radio" name="meta" ng-model="mission.meta" value="handling">Handling
-		<br />
-		<br />
-		Position :
-		<input type="text" id={{"autocomplete"}} required/><br />
-		<button ng-click="mission()"
-				ng-disabled="form.$invalid ">SAVE PATH</button>
-	</form>
-</body>
-</html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title></title>
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    </head>
+    <body>
+        <h2> Purpose a new mission:<h2>
+                <form name="form" novalidate class="simple-form">
+                    Title:
+                    <input type="text" ng-model="mission.title"  required /><br />
+                    Description :
+                    <input type="text" ng-model="mission.description" required/><br />
+                    Date :
+                    <input type="datetime" ng-model="mission.date" required/><br />
+                    Duration :
+                    <input type="number" ng-model="mission.duration" required min="1" max="8"/>hour<br />
+                    Number of volunteers :
+                    <input type="text" ng-model="mission.nbVolunteers" required/><br />
+                    Tag : <br />
+                    <input type="radio" name="meta" value="housing" ng-model="mission.meta" checked>housing
+                    <br />
+                    <input type="radio" name="meta" ng-model="mission.meta" value="distribution">Food distribution
+                    <br />
+                    <input type="radio" name="meta" ng-model="mission.meta" value="handling">Handling
+                    <br />
+                    <br />
+                    Position :
+                    <input type="text" id={{"autocomplete"}} required/><br />
+                    <button ng-click="mission()"
+                            ng-disabled="form.$invalid">SAVE PATH</button>
+                </form>
+                </body>
+                </html>

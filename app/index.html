@@ -3,41 +3,95 @@
 <!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>My AngularJS App</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="bower_components/html5-boilerplate/css/normalize.css">
-  <link rel="stylesheet" href="bower_components/html5-boilerplate/css/main.css">
-  <link rel="stylesheet" href="app.css">
-  <script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
-</head>
-<body>
-  <ul class="menu">
-    <li><a href="#/view1">view1</a></li>
-    <li><a href="#/view2">view2</a></li>
-  </ul>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>My AngularJS App</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--<link rel="stylesheet" href="bower_components/html5-boilerplate/css/normalize.css">-->
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="app.css">
+        <script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
+    </head>
+    <body>
+        <form class="form-horizontal">
+            <fieldset>
+                <legend>Purpose a new mission</legend>
+                <div class="form-group">
+                    <label for="inputTitle" class="col-lg-1 control-label">Title</label>
+                    <div class="col-lg-10">
+                        <input class="form-control" placeholder="Title" type="text" ng-model="mission.title" required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputDescription" class="col-lg-1 control-label">Description</label>
+                    <div class="col-lg-10">
+                        <textarea class="form-control" rows="3" ng-model="mission.description" required></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputDate" class="col-lg-1 control-label">Date</label>
+                    <div class="col-lg-10">
+                        <input type="datetime" ng-model="mission.date" required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputDuration" class="col-lg-1 control-label">Duration</label>
+                    <div class="col-lg-10">
+                        <input type="number" ng-model="mission.duration" required min="1" max="8"/><span class="text"> hours</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputNbVolunteers" class="col-lg-1 control-label">Number of volunteers</label>
+                    <div class="col-lg-10">
+                        <input type="number" ng-model="mission.nbVolunteers" required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputTags" class="col-lg-1 control-label">Tags</label>
+                    <div class="col-lg-10">
+                        <div class="radio">
+                            <label>
+                                <input name="optionsRadios" id="optionsRadios1" value="housing" checked="" type="radio" ng-model="mission.meta">
+                                Housing
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input name="optionsRadios" id="optionsRadios1" value="foodDistribution" checked="" type="radio" ng-model="mission.meta">
+                                Food distribution
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input name="optionsRadios" id="optionsRadios3" value="handling" checked="" type="radio" ng-model="mission.meta">
+                                Handling
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputNbVolunteers" class="col-lg-1 control-label">Position</label>
+                    <div class="col-lg-10">
+                        <input type="text" id="{{autocomplete}}"/>
+                    </div>
+                </div>
+                <a href="#" class="btn btn-primary col-md-offset-1" ng-click="mission()" ng-disabled="form.$invalid">Save Path</a>
+            </fieldset>
+        </form>
+       
 
-  <!--[if lt IE 7]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-  <![endif]-->
-
-  <div ng-view></div>
-
-  <div>Angular seed app: v<span app-version></span></div>
-
-  <!-- In production use:
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
-  -->
-  <script src="bower_components/angular/angular.js"></script>
-  <script src="bower_components/angular-route/angular-route.js"></script>
-  <script src="app.js"></script>
-  <script src="view1/view1.js"></script>
-  <script src="view2/view2.js"></script>
-  <script src="components/version/version.js"></script>
-  <script src="components/version/version-directive.js"></script>
-  <script src="components/version/interpolate-filter.js"></script>
-</body>
+        <!-- In production use:
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+        -->
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/angular-route/angular-route.js"></script>
+        <script src="app.js"></script>
+        <script src="view1/view1.js"></script>
+        <script src="view2/view2.js"></script>
+        <script src="components/version/version.js"></script>
+        <script src="components/version/version-directive.js"></script>
+        <script src="components/version/interpolate-filter.js"></script>
+    </body>
 </html>
