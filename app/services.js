@@ -24,7 +24,7 @@ angular.module('myApp.services', [])
         },
       getMission: function(id) {
         var deferred = $q.defer();
-        $http.get(Environment.backend + 'mission/' + id).success(function (mission) {
+        $http.get(Environment.backend + 'missions/' + id).success(function (mission) {
           deferred.resolve(mission);
         }).error(function (err, status) {
           deferred.reject(status);

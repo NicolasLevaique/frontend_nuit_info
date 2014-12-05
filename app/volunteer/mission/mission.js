@@ -1,25 +1,9 @@
 'use strict';
 
-/*
-describe('myApp.mission module', function() {
-
-  beforeEach(module('myApp.mission'));
-
-  describe('mission controller', function(){
-
-    it('should ....', inject(function($controller) {
-      //spec body
-      var view2Ctrl = $controller('View2Ctrl');
-      expect(view2Ctrl).toBeDefined();
-    }));
-
-  });
-});*/
-
 angular.module('myApp.mission', ['ngRoute'])
 
     .config(['$routeProvider', function($routeProvider) {
-      $routeProvider.when('/mission/:id', {
+      $routeProvider.when('/missions/:id', {
         templateUrl: '/volunteer/mission/mission.html',
         controller: 'MissionCtrl'
       });
@@ -27,6 +11,7 @@ angular.module('myApp.mission', ['ngRoute'])
 
 .controller('MissionCtrl', ['$scope', '$routeParams', 'VolunteerService', function($scope, $routeParams, VolunteerService) {
   VolunteerService.getMission($routeParams.id).then(function(mission) {
+    console.dir(mission);
     $scope.mission = mission;
   });
 }]);
