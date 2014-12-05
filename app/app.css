@@ -29,6 +29,10 @@
   padding: 0;
 }
 
+#content {
+    padding-top: 4%;
+}
+
 #missions-list {
     padding-left: 3%;  
 }
