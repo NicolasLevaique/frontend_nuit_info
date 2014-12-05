@@ -1,10 +1,10 @@
-<div class="navbar navbar-inverse">
-    <div class="navbar-header navbar-fixed-top">
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-header ">
         <a class="navbar-brand" href="#">Log in</a>
     </div>
 </div>
 
-<div class="row">
+<div class="row" id="content">
     <div class="col-md-8" id="missions-list">
         <h2>Latest Missions</h2>
         <ul class="list-group">
@@ -18,6 +18,12 @@
             </li>
         </ul>
         <button class="btn btn-primary col-lg-7 col-lg-offset-5">See missions around on map!</button>
+        <p>MAP</p>
+        <div class="row">
+            <div class="col col-75">
+                <div id="map" style="height:400px"></div>
+            </div>
+        </div>
     </div>
 
     <div id="criterias" class="col-md-3">
