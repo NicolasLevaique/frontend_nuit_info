@@ -9,10 +9,5 @@ angular.module('myApp', [
   'myApp.services'
 ]).
 config(['$routeProvider', function($routeProvider) {
-  $routeProvider.
-      when('/mission', {
-          templateUrl: 'volunteer/mission/mission.html',
-          controller: 'MissionCtrl'
-      }).
-      otherwise({redirectTo: '/home'});
+  $routeProvider.otherwise({redirectTo: '/home'});
 }]);
