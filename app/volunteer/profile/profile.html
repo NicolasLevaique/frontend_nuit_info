@@ -1,17 +1,36 @@
-<div id="top">
-  <img src="../../img/chucknorris.jpg"/>
-  <div>
-    <p>{{user.firstName + " " + user.lastName}} </p>
-    <p>Phone number: {{user.phoneNumber}}</p>
-  </div>
-  <img src="../../img/rank5.png"/>
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<div class="navbar navbar-inverse">
+    <div class="navbar-header navbar-fixed-top">
+        <a class="navbar-brand" href="#">Log in</a>
+    </div>
 </div>
 
-<div>
-  <p>BARRE DE PROGRESSION ({{user.experience}} / 1000)</p>
-</div>
-
-<div ng-repeat="mission in nextMissions" >
-  <p>{{mission.title}}</p>
-  <p>{{mission.description}}</p>
+<div id="content">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h2>Profile</h2>
+        </div>
+        <div id="top" class="panel-body">
+            <img src="../../img/chucknorris.jpg"/>
+            <div>
+                <p>{{user.firstName + " " + user.lastName}} </p>
+                <p>Phone number: {{user.phoneNumber}}</p>
+            </div>
+            <img src="../../img/rank5.png"/>
+        </div>
+        <div>
+            <div class="progress">
+                <div class="progress-bar progress-bar-warning" style="width: {{user.experience}}/1000"></div>
+            </div>
+        </div>
+        <div ng-repeat="mission in nextMissions" >
+            <p>{{mission.title}}</p>
+            <p>{{mission.description}}</p>
+        </div>
+    </div>
 </div>
