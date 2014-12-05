@@ -4,9 +4,15 @@
 angular.module('myApp', [
   'ngRoute',
   'myApp.home',
-  'myApp.view2',
-  'myApp.version'
+  'myApp.version',
+  'myApp.organisation',
+  'myApp.services'
 ]).
 config(['$routeProvider', function($routeProvider) {
-  $routeProvider.otherwise({redirectTo: '/home'});
+  $routeProvider.
+      when('/organisation', {
+          templateUrl: 'organisation/organisation.html',
+          controller: 'organisationCtrl'
+      })
+      .otherwise({redirectTo: '/organisation.html'});
 }]);
