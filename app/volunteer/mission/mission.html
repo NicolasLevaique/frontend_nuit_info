@@ -1,4 +1,19 @@
-<p>This is the partial for view 2.</p>
-<p>
+<div id="experience">
+  <p>Experience: {{user.experience}}</p>
+</div>
 
-</p>
+<div id="toprightcorner">
+  <button>GO</button>
+  <p>{{mission.date}}</p>
+  <p>{{mission.location}}</p>
+</div>
+
+<div id="{{mission.id}}">
+  <p>{{mission.title}}</p>
+  <p>{{mission.nbVolunteers}} / {{mission.maxVolunteers}}</p>
+
+  <!-- <p>{{mission.organization.description}}</p> -->
+
+  <p>{{mission.description}}</p>
+  <p>MAP</p>
+</div>
