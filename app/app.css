@@ -29,10 +29,6 @@
   padding: 0;
 }
 
-#content {
-    padding-top: 4%;
-}
-
 #missions-list {
     padding-left: 3%;  
 }
@@ -40,4 +36,8 @@
 #criterias {
     padding-left: 5%;
     padding-top: 2%;
+}
+
+#content {
+    padding-top: 4%;
 }

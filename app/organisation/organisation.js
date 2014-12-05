@@ -8,7 +8,7 @@ angular.module('myApp.organisation', ['ngRoute'])
     .config(['$routeProvider', function($routeProvider) {
         $routeProvider.when('/organisation', {
             templateUrl: 'organisation/organisation.html',
-            controller: 'organisation1Ctrl'
+            controller: 'organisationCtrl'
         });
     }])
 

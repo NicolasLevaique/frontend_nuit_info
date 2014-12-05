@@ -5,7 +5,7 @@ angular.module('myApp.services', [])
   .service('Environment', [function() {
     return {
       //if dev
-      backend: 'http://localhost:8300/api/'
+      backend: 'http://localhost:10200/api/'
       // if prod
 //      backend: 'http://3ma7.learning-socle.org/'
     }
@@ -15,7 +15,7 @@ angular.module('myApp.services', [])
     return {
         getMissions: function () {
           var deferred = $q.defer();
-          $http.get(Environment.backend + 'missions/').success(function (missions) {
+          $http.get(Environment.backend + 'missions/all').success(function (missions) {
             deferred.resolve(missions);
           }).error(function (err, status) {
             deferred.reject(status);
@@ -44,7 +44,7 @@ angular.module('myApp.services', [])
       }
     }
   }])
-    .service('MapService', ['$http', '$q', function() {
+    .service('MapService', [function() {
         return {
             traceRoute: function (directionsDisplay, originJSON, destinationJSON) {
                 var origin = new google.maps.LatLng(originJSON.latitude, originJSON.longitude);

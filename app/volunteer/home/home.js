@@ -9,7 +9,7 @@ angular.module('myApp.home', ['ngRoute'])
     });
   }])
 
-  .controller('HomeCtrl', ['$scope', 'VolunteerService', function($scope, VolunteerService) {
+  .controller('HomeCtrl', ['$scope', 'VolunteerService', 'MapService', function($scope, VolunteerService, MapService) {
     VolunteerService.getMissions().then(function(missions) {
       $scope.missions = missions.paths;
       console.dir(missions);
@@ -53,9 +53,4 @@ angular.module('myApp.home', ['ngRoute'])
 //      console.dir(geoMarker.getPosition());
     };
     init();
-
-
-
-
-  });
 }]);
