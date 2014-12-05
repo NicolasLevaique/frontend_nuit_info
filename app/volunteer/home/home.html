@@ -1,13 +1,83 @@
-<div ng-repeat="mission in missions" >
-    <a href="#/missions/{{mission.id}}">
-        <div id="{{mission.id}}">
-            <p>{{mission.name}}</p>
-            <p>{{mission.description}}</p>
-        </div>
-    </a>
-    <div id="criterias">
+<!--<div ng-repeat="mission in missions" >-->
+    <!--<a href="#/missions/{{mission.id}}">-->
+        <!--<div id="{{mission.id}}">-->
+            <!--<p>{{mission.title}}</p>-->
+            <!--<p>{{mission.description}}</p>-->
+        <!--</div>-->
+    <!--</a>-->
+    <!--<div id="criterias">-->
 
+    <!--</div>-->
+<!--</div>-->
+<!--<button>See missio!ns around on map</button>-->
+
+<div class="navbar navbar-inverse">
+    <div class="navbar-header navbar-fixed-top">
+        <a class="navbar-brand" href="#">Log in</a>
     </div>
 </div>
-<button>See missions around on map!</button>
+
+<div class="row">
+    <div class="col-md-8" id="missions-list">
+        <h2>Latest Missions</h2>
+        <ul class="list-group">
+            <li class="list-group-item" ng-repeat="mission in missions" >
+                <a href="#/missions/{{mission.id}}">
+                    <div id="{{mission.id}}">
+                        <p>{{mission.title}}</p>
+                        <p>{{mission.description}}</p>
+                    </div>
+                </a>
+            </li>
+        </ul>
+        <button class="btn btn-primary col-lg-7 col-lg-offset-5">See missions around on map!</button>
+    </div>
+
+    <div id="criterias" class="col-md-3">
+        <legend>Search criterion</legend>
+        <div class="form-group">
+            <label class="control-label">Organisation name</label>
+            <input class="form-control" type="text"/>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Type</label>
+            <div class="radio">
+                <label>
+                    <input name="optionsRadios" id="optionsRadios1" value="housing" checked="" type="radio">
+                    Housing
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input name="optionsRadios" id="optionsRadios2" value="distribution" checked="" type="radio">
+                    Food distribution
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input name="optionsRadios" id="optionsRadios3" value="handling" checked="" type="radio">
+                    Handling
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Distance</label>
+            <select class="form-control">
+                <option>Less than 1km</option>
+                <option>Less than 5km</option>
+                <option>Less than 10km</option>
+                <option>More than 10km</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Date</label>
+            <input class="form-control" type="datetime"/>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Duration</label>
+            <input type="number" class="form-control" required min="1" max="8"/>
+        </div>
+        <button class="btn btn-primary col-lg-offset-4">Search</button>
+    </div>
+</div>
 

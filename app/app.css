@@ -28,3 +28,12 @@
   content: "";
   padding: 0;
 }
+
+#missions-list {
+  padding-left: 3%;
+}
+
+#criterias {
+  padding-left: 5%;
+  padding-top: 2%;
+}

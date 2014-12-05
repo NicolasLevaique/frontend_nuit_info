@@ -1,0 +1,17 @@
+<div id="top">
+  <img src="../../img/chucknorris.jpg"/>
+  <div>
+    <p>{{user.firstName + " " + user.lastName}} </p>
+    <p>Phone number: {{user.phoneNumber}}</p>
+  </div>
+  <img src="../../img/rank5.png"/>
+</div>
+
+<div>
+  <p>BARRE DE PROGRESSION ({{user.experience}} / 1000)</p>
+</div>
+
+<div ng-repeat="mission in nextMissions" >
+  <p>{{mission.title}}</p>
+  <p>{{mission.description}}</p>
+</div>
