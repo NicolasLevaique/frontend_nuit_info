@@ -5,7 +5,7 @@ angular.module('myApp.services', [])
   .service('Environment', [function() {
     return {
       //if dev
-      backend: 'http://localhost:10200/api/'
+      backend: 'http://localhost:8300/api/'
       // if prod
 //      backend: 'http://3ma7.learning-socle.org/'
     }
@@ -21,6 +21,17 @@ angular.module('myApp.services', [])
             deferred.reject(status);
           });
           return deferred.promise;
+        },
+        getMissionsByLocation: function (position) {
+            var deferred = $q.defer();
+            console.log(position.lat());
+            console.log(position.lng());
+            $http.get(Environment.backend + 'missions?lat='+position.lat()+'&long='+position.lng()).success(function (missions) {
+                deferred.resolve(missions);
+            }).error(function (err, status) {
+                deferred.reject(status);
+            });
+            return deferred.promise;
         },
       getMission: function(id) {
         var deferred = $q.defer();

@@ -24,8 +24,22 @@ angular.module('myApp.home', ['ngRoute'])
                 var position = geoMarker.getPosition();
                 console.dir(position);
                 map.setCenter(position);
-                map.fitBounds(this.getBounds());
 
+                VolunteerService.getMissionsByLocation(position).then(function(missions) {
+                    $scope.missions = missions.paths;
+                    console.dir(missions);
+                    var infowindow = new google.maps.InfoWindow();
+
+                    var marker, i;
+
+                    for (i = 0; i < missions.length; i++) {
+                        marker = new google.maps.Marker({
+                            position: new google.maps.LatLng(missions[i][0], missions[i][1]),
+                            map: map
+                        });
+                    }
+                    map.fitBounds(this.getBounds());
+                });
             });
             console.log("map init");
             geoMarker.setMap(map);
@@ -33,13 +47,9 @@ angular.module('myApp.home', ['ngRoute'])
 //      console.log('position geomarker');
 //      console.dir(geoMarker.getPosition());
         };
-
-     VolunteerService.getMissions().then(function(missions) {
-    $scope.missions = missions.paths;
-    console.dir(missions);
-    init();
-  });
         init();
+
+
 
 
 }]);
