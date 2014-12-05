@@ -8,15 +8,35 @@
         <script src="../bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
     <title>Manage a mission</title>
 </head>
-<body>
+	<body>
+		<div class="navbar navbar-inverse">
+	  <div class="navbar-header">
+		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-inverse-collapse">
+		  <span class="icon-bar"></span>
+		  <span class="icon-bar"></span>
+		  <span class="icon-bar"></span>
+		</button>
+		<a class="navbar-brand" href="#">Application name</a>
+	  </div>
+		<ul class="nav navbar-nav">
+		  <li><a href="organisation">Create new mission</a></li>
+		</ul>
+		<ul class="nav navbar-nav navbar-right">
+		  <div ng-if="{{connected}}" class="animate-if">
+		  	<li><a href="#">Change settings</a></li>
+		  	<li><a href="../logout">Logout</a></li>	
+		  </div>
+		  <div ng-if="{{connected == false}}" class="animate-if">
+		  	<li><a href="../login">login</a></li>	
+		  </div>
+		</ul>
+	  </div>
+	</div>
+	
 	<h2>Manage a mission:</h2>
 	<h3>{{mission.title}}</h3>
 	<p>{{mission.description}}</p>
-	<ul class="pager">
-	  <li class="previous"><a href="#">Previous</a></li>
-	  <li class="next"><a href="#">Next</a></li>
-	</ul>
-	<p>{{mission.suscriberCount + " / " + mission.maxVolunteers}}</p>
+	<p>{{mission.nbVolunteers + " / " + mission.maxVolunteers}}</p>
 	<table class="table table-striped table-hover ">
 	  <thead>
 		<tr>
@@ -26,14 +46,15 @@
 		  <th>Present</th>
 		</tr>
 	  </thead>
-	  <tbody ng-repeat="volunteer in mission">
+	  <tbody ng-repeat="volunteer in mission.volunteers">
 		<tr>
-		  <td>$index</td>
+		  <td>{{$index}}</td>
 		  <td>{{volunteer.name}}</td>
 		  <td>{{volunteer.surname}}</td>
-		  <td><span ng-if="{{volunteer.validated}}" class="animate-if"><a href="#" class="btn btn-primary btn-sm">Arrived</a></span></td>
+		  <td><span ng-if="{{volunteer.present}}" class="animate-if"><button ng-click="volunteerArrived($index)" href="#" class="btn btn-primary btn-sm">Arrived</button></span></td>
 		</tr>
 	  </tbody>
 	</table> 
+	<a href="mission" class="btn btn-primary btn-sm">Back to mission list</a>
 </body>
 </html>
