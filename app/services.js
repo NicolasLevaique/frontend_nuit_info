@@ -32,4 +32,18 @@ angular.module('myApp.services', [])
         return deferred.promise;
       }
     }
+  }])
+
+  .service('UserService', ['$http', '$q', 'Environment', function($http, $q, Environment) {
+    return {
+      getUser: function(id) {
+        var deferred = $q.defer();
+        $http.get(Environment.backend + 'users/' + id).success(function (user) {
+          deferred.resolve(user);
+        }).error(function (err, status) {
+          deferred.reject(status);
+        });
+        return deferred.promise;
+      }
+    }
   }]);
