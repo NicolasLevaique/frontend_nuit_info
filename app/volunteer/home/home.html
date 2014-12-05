@@ -9,11 +9,13 @@
 <div class="row">
     <div class="col-md-8" id="missions-list">
         <h2>Latest Missions</h2>
-        <ul class="list-group">
-            <li class="list-group-item" ng-repeat="mission in missions" >
+        <ul class="list-group isotope">
+            <li class="list-group-item element-item {{mission.organization.name}} {{mission.date}}
+            duration-{{mission.duration}} meta-{{mission.meta}} distance-{{mission.distance}}" ng-repeat="mission in missions" >
                 <a href="#/missions/{{mission.id}}">
                     <div id="{{mission.id}}">
                         <p>{{mission.title}}</p>
+                        <p>{{mission.date}}</p>
                         <p>{{mission.description}}</p>
                     </div>
                 </a>
@@ -26,7 +28,7 @@
         <legend>Search criterion</legend>
         <div class="form-group">
             <label class="control-label">Organisation name</label>
-            <input class="form-control" type="text"/>
+            <input class="form-control" type="text" ng-model="criteria.organization.name"/>
         </div>
         <div class="form-group">
             <label class="control-label">Type</label>
@@ -66,7 +68,7 @@
             <label class="control-label">Duration</label>
             <input type="number" class="form-control" required min="1" max="8"/>
         </div>
-        <button class="btn btn-primary col-lg-offset-4">Search</button>
+        <button ng-click="update()" class="btn btn-primary col-lg-offset-4">Search</button>
     </div>
 </div>
 
